@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    server:
+     container_name: gpt-server
+     restart: on-failure
+     build: .
+     ports:
+        - 5000:5000
+    nginx:
+     container_name: gpt-reverse_proxy
+     build: ./nginx
+     ports:
+        - 80:80
+
